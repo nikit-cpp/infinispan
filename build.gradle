@@ -1,0 +1,27 @@
+group 'infinispan'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'war'
+
+repositories {
+    jcenter()
+    mavenCentral()
+    maven {
+        url "https://repository.jboss.org/nexus/content/repositories/thirdparty-releases/"
+    }
+}
+
+dependencies {
+    providedCompile 'org.jboss.spec.javax.ejb:jboss-ejb-api_3.2_spec:1.0.0.Final'
+    providedCompile 'org.slf4j:slf4j-api:1.7.12'
+    providedCompile 'org.wildfly:wildfly-clustering-infinispan:8.2.0.Final'
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+war {
+    manifest {
+        attributes("Dependencies": "org.infinispan export, org.infinispan.commons export, org.jboss.as.clustering.infinispan export"
+        )
+    }
+}
