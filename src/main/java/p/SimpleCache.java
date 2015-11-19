@@ -19,7 +19,7 @@ public class SimpleCache {
     @Resource(lookup = "java:jboss/infinispan/container/myCache")
     private EmbeddedCacheManager defaultCacheManager;
 
-    private Logger logger = LoggerFactory.getLogger("mylog");
+    private Logger logger = LoggerFactory.getLogger(SimpleCache.class);
 
     private org.infinispan.Cache<String, String> cache;
 
@@ -29,12 +29,12 @@ public class SimpleCache {
 
         final String key = "key";
         String result = get(key);
-        logger.info("getted result 1: {}", result);
+        logger.debug("getted result 1: {}", result);
 
         put(key, "ololo");
 
         result = get(key);
-        logger.info("getted result 1: {}", result);
+        logger.debug("getted result 1: {}", result);
 
     }
 

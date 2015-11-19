@@ -21,7 +21,7 @@ dependencies {
 
 war {
     manifest {
-        attributes("Dependencies": "org.infinispan export, org.infinispan.commons export, org.jboss.as.clustering.infinispan export"
+        attributes("Dependencies": "org.jboss.as.clustering.infinispan export"
         )
     }
 }
